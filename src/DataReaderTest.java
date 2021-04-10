@@ -94,11 +94,17 @@ class DataReaderTest {
     }
 
     @Test
-    void testGetPeopleizeZero() {
+    void testGetPeopleSizeZero() {
         People.getInstance().getPeople().clear();
         peopleList = DataReader.readPeople();
 		assertEquals(0, peopleList.size());
     }
     
+    @Test
+    void testGetEvidenceSizeZero() {
+        Evidences.getInstance().getEvidence().clear();
+        evidenceList = DataReader.readEvidence();
+        assertEquals(0, evidenceList.size());
+    }
 
 }
