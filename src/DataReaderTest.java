@@ -54,6 +54,10 @@ class DataReaderTest {
         DataWriter.saveUsers();
         People.getInstance().getPeople().clear();
         DataWriter.savePeople();
+        Evidences.getInstance().getEvidence().clear();
+        DataWriter.saveEvidence();
+        Crimes.getInstance().getCrime().clear();
+        DataWriter.saveCrime();
     }
     
     @Test
@@ -97,6 +101,7 @@ class DataReaderTest {
     @Test
     void testGetPeopleSizeZero() {
         People.getInstance().getPeople().clear();
+        DataWriter.savePeople();
         peopleList = DataReader.readPeople();
 		assertEquals(0, peopleList.size());
     }
@@ -116,6 +121,7 @@ class DataReaderTest {
     @Test
     void testGetEvidenceSizeZero() {
         Evidences.getInstance().getEvidence().clear();
+        DataWriter.saveEvidence();
         evidenceList = DataReader.readEvidence();
         assertEquals(0, evidenceList.size());
     }
@@ -130,6 +136,20 @@ class DataReaderTest {
     void testGetCrimeSize() {
         crimeList = DataReader.readCrime();
         assertEquals(2, crimeList.size());
+    }
+
+    @Test
+    void testGetCrimeSizeZero() {
+        Crimes.getInstance().getCrime().clear();
+        DataWriter.saveCrime();
+        crimeList = DataReader.readCrime();
+        assertEquals(0, crimeList.size());
+    }
+
+    @Test
+    void testGetCrimeTitle() {
+        crimeList = DataReader.readCrime();
+        assertEquals("crime 2", crimeList.get(1).getCrimeTitle());
     }
 
 }
