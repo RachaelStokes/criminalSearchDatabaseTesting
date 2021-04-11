@@ -377,7 +377,7 @@ public class Database {
         }
     }
 
-    private static ArrayList<Crime> searchCases(String attributes) {
+    public static ArrayList<Crime> searchCases(String attributes) {
         ArrayList<Crime> caseSearchResults = crimes.getCrime();
         for (int i = 0; i < attributes.length(); i++) {
             char type = attributes.charAt(i);

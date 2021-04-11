@@ -1,3 +1,4 @@
+
 //Benjamin Williams
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,8 +19,9 @@ public class EvidenceTester {
     private String hairSamples;
 
     @Test
-    public void testEvidence() {
-        Evidence e = new Evidence(id, location, crimeType, time, date, fingerprintInfo, bloodSampleInfo, DNAInfo, weapon, descriptionOfScene, hairSamples);
+    public void testEvidenceConstructor() {
+        Evidence e = new Evidence(id, location, crimeType, time, date, fingerprintInfo, bloodSampleInfo, DNAInfo,
+                weapon, descriptionOfScene, hairSamples);
         assertEquals(id, e.getId());
         assertEquals(location, e.getLocation());
         assertEquals(crimeType, e.getCrimeType());
@@ -35,8 +37,10 @@ public class EvidenceTester {
 
     @Test
     public void testEvidenceToString() {
-        Evidence e = new Evidence(id, location, crimeType, time, date, fingerprintInfo, bloodSampleInfo, DNAInfo, weapon, descriptionOfScene, hairSamples);
-        Evidence a = new Evidence(id, location, crimeType, time, date, fingerprintInfo, bloodSampleInfo, DNAInfo, weapon, descriptionOfScene, hairSamples);
+        Evidence e = new Evidence(id, location, crimeType, time, date, fingerprintInfo, bloodSampleInfo, DNAInfo,
+                weapon, descriptionOfScene, hairSamples);
+        Evidence a = new Evidence(id, location, crimeType, time, date, fingerprintInfo, bloodSampleInfo, DNAInfo,
+                weapon, descriptionOfScene, hairSamples);
         assertEquals(a.toString(), e.toString());
     }
 }

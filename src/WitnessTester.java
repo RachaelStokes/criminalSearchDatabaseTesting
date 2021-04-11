@@ -1,3 +1,4 @@
+
 //Benjamin Williams
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
@@ -20,8 +21,9 @@ public class WitnessTester {
     private String accountGiven;
 
     @Test
-    public void testWitness() {
-        Witness w = new Witness(firstName, lastName, type, id, phoneNumber, address, email, birthDate, race, gender, accountGiven, height, age);
+    public void testWitnessConstructor() {
+        Witness w = new Witness(firstName, lastName, type, id, phoneNumber, address, email, birthDate, race, gender,
+                accountGiven, height, age);
         assertEquals(firstName, w.getFirstName());
         assertEquals(id, w.getId());
         assertEquals(type, w.getType());
@@ -39,8 +41,10 @@ public class WitnessTester {
 
     @Test
     public void testWitnessToString() {
-        Witness w = new Witness(firstName, lastName, type, id, phoneNumber, address, email, birthDate, race, gender, accountGiven, height, age);
-        Witness a = new Witness(firstName, lastName, type, id, phoneNumber, address, email, birthDate, race, gender, accountGiven, height, age);
+        Witness w = new Witness(firstName, lastName, type, id, phoneNumber, address, email, birthDate, race, gender,
+                accountGiven, height, age);
+        Witness a = new Witness(firstName, lastName, type, id, phoneNumber, address, email, birthDate, race, gender,
+                accountGiven, height, age);
         assertEquals(a.toString(), w.toString());
     }
 }
