@@ -30,14 +30,14 @@ class DataReaderTest {
         UUID id3 = UUID.randomUUID();
         UUID id4 = UUID.randomUUID();
         peopleList.add(new Criminal("Rachael", "Stokes", "criminal", id3, "phoneNumber", "address", "email", "birthDate", "race", "gender", "hairColor", "eyeColor", "incarcerationStatus", 0, "severityOfCrime", "tattoos", "knownLocation", "distinguishingFeatures", "recordDescription", "height", "age"));
-        //peopleList.add(new Victim(firstName, lastName, type, personId, phoneNumber, address, email, birthDate, race, gender, familyContactInfo, condition, bloodType, accountGiven, height, age));
+        peopleList.add(new Victim("firstName", "lastName", "victim", id4, "phoneNumber", "address", "email", "birthDate", "race", "gender", "familyContactInfo", "condition", "bloodType", "accountGiven", "height", "age"));
         DataWriter.savePeople();
 
         evidenceList.clear();
         UUID id5 = UUID.randomUUID();
         UUID id6 = UUID.randomUUID();
-        //evidenceList.add(new Evidence(id5, "columbia", "robbery", time, date, fingerprintInfo, bloodSampleInfo, DNAInfo, weapon, descriptionOfScene, hairSamples));
-        //evidenceList.add(new Evidence(id6, location, crimeType, time, date, fingerprintInfo, bloodSampleInfo, DNAInfo, weapon, descriptionOfScene, hairSamples));
+        evidenceList.add(new Evidence(id5, "columbia", "robbery", "time", "date", "fingerprintInfo", "bloodSampleInfo", "DNAInfo", "weapon", "descriptionOfScene", "hairSamples"));
+        evidenceList.add(new Evidence(id6, "location", "crimeType", "time", "date", "fingerprintInfo", "bloodSampleInfo", "DNAInfo", "weapon", "descriptionOfScene", "hairSamples"));
         DataWriter.saveEvidence();
 
         crimeList.clear();
@@ -45,7 +45,7 @@ class DataReaderTest {
         UUID id8 = UUID.randomUUID();
         crimeList.add(new Crime("crime 1", id7, "the first crime", peopleList, evidenceList, userList));
         crimeList.add(new Crime("crime 2", id8, "the second crime", peopleList, evidenceList, userList));
-
+        DataWriter.saveCrime();
 	}
 	
 	@AfterEach
@@ -65,6 +65,7 @@ class DataReaderTest {
     @Test
     void testGetUserSizeZero() {
         RegisteredUsers.getInstance().getRegisteredUsers().clear();
+        DataWriter.saveUsers();
         userList = DataReader.readUser();
 		assertEquals(0, userList.size());
     }
@@ -84,13 +85,13 @@ class DataReaderTest {
     @Test
     void testGetPeopleSize() {
         peopleList = DataReader.readPeople();
-        assertEquals(1, peopleList.size());
+        assertEquals(2, peopleList.size());
     }
 
     @Test
     void testGetPeopleType() {
         peopleList = DataReader.readPeople();
-        assertEquals("criminal", peopleList.get(0).getType());
+        assertEquals("victim", peopleList.get(1).getType());
     }
 
     @Test
@@ -99,12 +100,36 @@ class DataReaderTest {
         peopleList = DataReader.readPeople();
 		assertEquals(0, peopleList.size());
     }
+
+    @Test
+    void testGetPeopleTattoos() {
+        peopleList = DataReader.readPeople();
+        assertEquals("tattoos", peopleList.get(0).getTattoos());
+    }
     
+    @Test
+    void testGetEvidenceSize() {
+        evidenceList = DataReader.readEvidence();
+        assertEquals(2, evidenceList.size());
+    }
+
     @Test
     void testGetEvidenceSizeZero() {
         Evidences.getInstance().getEvidence().clear();
         evidenceList = DataReader.readEvidence();
         assertEquals(0, evidenceList.size());
+    }
+
+    @Test
+    void testGetEvidenceLocation() {
+        evidenceList = DataReader.readEvidence();
+        assertEquals("columbia", evidenceList.get(0).getLocation());
+    }
+
+    @Test
+    void testGetCrimeSize() {
+        crimeList = DataReader.readCrime();
+        assertEquals(2, crimeList.size());
     }
 
 }
