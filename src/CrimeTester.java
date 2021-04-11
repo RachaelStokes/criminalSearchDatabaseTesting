@@ -11,9 +11,9 @@ class CrimeTester {
     private ArrayList<Person> people = new ArrayList<Person>();
     private ArrayList<Evidence> evidence = new ArrayList<Evidence>();
     private ArrayList<RegisteredUser> users = new ArrayList<RegisteredUser>();
-  
+
     @Test
-    public void testCrime(){
+    public void testCrimeConstructor() {
         Crime c = new Crime(crimeTitle, crimeID, description, people, evidence, users);
         assertEquals(crimeTitle, c.getCrimeTitle());
         assertEquals(crimeID, c.getCrimeId());
@@ -24,7 +24,7 @@ class CrimeTester {
     }
 
     @Test
-    public void testCrimeToString(){
+    public void testCrimeToString() {
         Crime c = new Crime(crimeTitle, crimeID, description, people, evidence, users);
         Crime a = new Crime(crimeTitle, crimeID, description, people, evidence, users);
         assertEquals(a.toString(), c.toString());
