@@ -20,4 +20,11 @@ public class RegisteredUserTester {
         assertEquals(u.getPassword(), password);
         assertEquals(u.getLoggedIn(), isLoggedIn);
     }
+
+    @Test
+    public void testRegisteredUserToString() {
+        RegisteredUser r = new RegisteredUser(userId, firstName, lastName, username, password, isLoggedIn);
+        RegisteredUser u = new RegisteredUser(userId, firstName, lastName, username, password, isLoggedIn);
+        assertEquals(r.toString(), u.toString());
+    }
 }

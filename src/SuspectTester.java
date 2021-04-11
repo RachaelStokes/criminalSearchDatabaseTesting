@@ -1,3 +1,4 @@
+
 //Benjamin Williams
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
@@ -23,8 +24,9 @@ public class SuspectTester {
     private String reasonWhySus;
 
     @Test
-    public void testSuspect() {
-        Suspect s = new Suspect(firstName, lastName, type, id, phoneNumber, address, email, birthDate, race, gender, accountGiven, relationshipToVictim, criminalRecord, reasonWhySus, height, age);
+    public void testSuspectConstructor() {
+        Suspect s = new Suspect(firstName, lastName, type, id, phoneNumber, address, email, birthDate, race, gender,
+                accountGiven, relationshipToVictim, criminalRecord, reasonWhySus, height, age);
         assertEquals(firstName, s.getFirstName());
         assertEquals(id, s.getId());
         assertEquals(type, s.getType());
@@ -41,5 +43,14 @@ public class SuspectTester {
         assertEquals(relationshipToVictim, s.getRelationshipToVictim());
         assertEquals(criminalRecord, s.getCriminalRecord());
         assertEquals(reasonWhySus, s.getReasonWhySus());
+    }
+
+    @Test
+    public void testSuspectToString() {
+        Suspect s = new Suspect(firstName, lastName, type, id, phoneNumber, address, email, birthDate, race, gender,
+                accountGiven, relationshipToVictim, criminalRecord, reasonWhySus, height, age);
+        Suspect d = new Suspect(firstName, lastName, type, id, phoneNumber, address, email, birthDate, race, gender,
+                accountGiven, relationshipToVictim, criminalRecord, reasonWhySus, height, age);
+        assertEquals(s.toString(), d.toString());
     }
 }
