@@ -14,24 +14,25 @@ class DataWriterTest {
 
 	private People people = People.getInstance();
 	private ArrayList<Person> peopleList = people.getPeople();
-
+	
+	/*
 	private Evidences evidences = Evidences.getInstance();
 	private ArrayList<Evidence> evidenceList = evidences.getEvidence();
 
 	private Crimes crimes = Crimes.getInstance();
-	private ArrayList<Crime> crimesList = crimes.getCrime();
-	/*
-	 * @BeforeEach public void setup() {
-	 * RegisteredUsers.getInstance().getRegisteredUsers().clear();
-	 * DataWriter.saveUsers(); People.getInstance().getPeople().clear();
-	 * DataWriter.savePeople(); }
-	 */
-	/*
-	 * @AfterEach public void tearDown() {
-	 * RegisteredUsers.getInstance().getRegisteredUsers().clear();
-	 * DataWriter.saveUsers(); People.getInstance().getPeople().clear();
-	 * DataWriter.savePeople(); }
-	 */
+	private ArrayList<Crime> crimesList = crimes.getCrime();*/
+	
+	 @BeforeEach public void setup() {
+	 RegisteredUsers.getInstance().getRegisteredUsers().clear();
+	 DataWriter.saveUsers(); People.getInstance().getPeople().clear();
+	 DataWriter.savePeople(); }
+	 
+	
+	 @AfterEach public void tearDown() {
+	 RegisteredUsers.getInstance().getRegisteredUsers().clear();
+	 DataWriter.saveUsers(); People.getInstance().getPeople().clear();
+	 DataWriter.savePeople(); }
+	 
 
 	@Test
 	void testWritingZeroUsers() {
@@ -164,7 +165,7 @@ class DataWriterTest {
 		assertEquals("victim", DataReader.readPeople().get(3).getType());
 
 	}
-
+	/*
 	@Test
 	void getUserThruJSON() {
 		System.out.println(userList.size());
@@ -175,7 +176,7 @@ class DataWriterTest {
 		String nameTwo = String.valueOf(randJSONObj.get("firstName"));
 		assertEquals(nameOne, nameTwo);
 	}
-
+	
 	@Test
 	void getPersonThruJSON() {
 		int randIndex = (int) (Math.random() * 18);// random num 1-18
@@ -205,6 +206,6 @@ class DataWriterTest {
 		String crimeIdTwo = String.valueOf(randJSONObj.get("crimeId"));
 		assertEquals(crimeIdOne, crimeIdTwo);
 
-	}
+	}*/
 
 }

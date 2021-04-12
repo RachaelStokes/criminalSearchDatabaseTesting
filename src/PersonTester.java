@@ -1,6 +1,5 @@
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 import java.util.*;
 
@@ -34,6 +33,15 @@ class PersonTester {
         assertEquals(gender, p.getGender());
         assertEquals(height, p.getHeight());
         assertEquals(age, p.getAge());
+    }
+
+    @Test
+    public void testPersonToString() {
+        Person p = new Person(firstName, lastName, type, id, phoneNumber, address, email, birthDate, race, gender,
+                height, age);
+        Person q = new Person(firstName, lastName, type, id, phoneNumber, address, email, birthDate, race, gender,
+                height, age);
+        assertEquals(p.toString(), q.toString());
     }
 
 }
