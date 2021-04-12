@@ -59,6 +59,32 @@ class DataWriterTest {
 		DataWriter.saveUsers();
 		assertEquals("rachstokes5", DataReader.readUser().get(4).getUsername());
 	}
+
+	@Test
+	void testWritingTenUsers() {
+		UUID id1 = UUID.randomUUID();
+		UUID id2 = UUID.randomUUID();
+		UUID id3 = UUID.randomUUID();
+		UUID id4 = UUID.randomUUID();
+		UUID id5 = UUID.randomUUID();
+		UUID id6 = UUID.randomUUID();
+		UUID id7 = UUID.randomUUID();
+		UUID id8 = UUID.randomUUID();
+		UUID id9 = UUID.randomUUID();
+		UUID id10 = UUID.randomUUID();
+		userList.add(new RegisteredUser(id1, "Rachael", "Stokes", "rachstokes1", "mypassword1", false));
+		userList.add(new RegisteredUser(id2, "Rachael", "Stokes", "rachstokes2", "mypassword2", false));
+		userList.add(new RegisteredUser(id3, "Rachael", "Stokes", "rachstokes3", "mypassword3", false));
+		userList.add(new RegisteredUser(id4, "Rachael", "Stokes", "rachstokes4", "mypassword4", false));
+		userList.add(new RegisteredUser(id5, "Rachael", "Stokes", "rachstokes5", "mypassword5", false));
+		userList.add(new RegisteredUser(id6, "Rachael", "Stokes", "rachstokes1", "mypassword1", false));
+		userList.add(new RegisteredUser(id7, "Rachael", "Stokes", "rachstokes2", "mypassword2", false));
+		userList.add(new RegisteredUser(id8, "Rachael", "Stokes", "rachstokes3", "mypassword3", false));
+		userList.add(new RegisteredUser(id9, "Rachael", "Stokes", "rachstokes4", "mypassword4", false));
+		userList.add(new RegisteredUser(id10, "Rachael", "Stokes", "rachstokes5", "mypassword5", false));
+		DataWriter.saveUsers();
+		assertEquals("rachstokes5", DataReader.readUser().get(9).getUsername());
+	}
 	
 	@Test
 	void testWritingZeroPeople() {
