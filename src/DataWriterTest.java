@@ -11,24 +11,27 @@ import java.util.*;
 class DataWriterTest {
 	private RegisteredUsers users = RegisteredUsers.getInstance();
 	private ArrayList<RegisteredUser> userList = users.getRegisteredUsers();
+
 	private People people = People.getInstance();
 	private ArrayList<Person> peopleList = people.getPeople();
 
-	@BeforeEach
-	public void setup() {
-		RegisteredUsers.getInstance().getRegisteredUsers().clear();
-		DataWriter.saveUsers();
-		People.getInstance().getPeople().clear();
-		DataWriter.savePeople();
-	}
+	private Evidences evidences = Evidences.getInstance();
+	private ArrayList<Evidence> evidenceList = evidences.getEvidence();
 
-	@AfterEach
-	public void tearDown() {
-		RegisteredUsers.getInstance().getRegisteredUsers().clear();
-		DataWriter.saveUsers();
-		People.getInstance().getPeople().clear();
-		DataWriter.savePeople();
-	}
+	private Crimes crimes = Crimes.getInstance();
+	private ArrayList<Crime> crimesList = crimes.getCrime();
+	/*
+	 * @BeforeEach public void setup() {
+	 * RegisteredUsers.getInstance().getRegisteredUsers().clear();
+	 * DataWriter.saveUsers(); People.getInstance().getPeople().clear();
+	 * DataWriter.savePeople(); }
+	 */
+	/*
+	 * @AfterEach public void tearDown() {
+	 * RegisteredUsers.getInstance().getRegisteredUsers().clear();
+	 * DataWriter.saveUsers(); People.getInstance().getPeople().clear();
+	 * DataWriter.savePeople(); }
+	 */
 
 	@Test
 	void testWritingZeroUsers() {
@@ -125,7 +128,6 @@ class DataWriterTest {
 
 	@Test
 	void getUserThruJSON() {
-
 		System.out.println(userList.size());
 		int randIndex = (int) (Math.random() * 7);// random num 1-7
 		RegisteredUser randUser = userList.get(randIndex);
@@ -133,6 +135,37 @@ class DataWriterTest {
 		String nameOne = randUser.getFirstName();
 		String nameTwo = String.valueOf(randJSONObj.get("firstName"));
 		assertEquals(nameOne, nameTwo);
+	}
+
+	@Test
+	void getPersonThruJSON() {
+		int randIndex = (int) (Math.random() * 18);// random num 1-18
+		Person randPerson = peopleList.get(randIndex);
+		JSONObject randJSONObj = DataWriter.getPeopleJSON(randPerson);
+		String nameOne = randPerson.getFirstName();
+		String nameTwo = String.valueOf(randJSONObj.get("firstName"));
+		assertEquals(nameOne, nameTwo);
+	}
+
+	@Test
+	void getEvidenceThruJSON() {
+		int randIndex = (int) (Math.random() * 4);// random num 1-4
+		Evidence randEvidence = evidenceList.get(randIndex);
+		JSONObject randJSONObj = DataWriter.getEvidenceJSON(randEvidence);
+		String weaponOne = randEvidence.getWeapon();
+		String weaponTwo = String.valueOf(randJSONObj.get("weapon"));
+		assertEquals(weaponOne, weaponTwo);
+	}
+
+	@Test
+	void getCrimeThruJSON() {
+		int randIndex = (int) (Math.random() * 5);// random num 1-5
+		Crime randCrime = crimesList.get(randIndex);
+		JSONObject randJSONObj = DataWriter.getCrimeJSON(randCrime);
+		String crimeIdOne = randCrime.getCrimeId().toString();
+		String crimeIdTwo = String.valueOf(randJSONObj.get("crimeId"));
+		assertEquals(crimeIdOne, crimeIdTwo);
+
 	}
 
 }

@@ -1,1 +1,74 @@
-[]
+[
+  {
+    "crimeId": "95f5cfb2-8ab6-11eb-8dcd-0242ac130003",
+    "personsOfInterest": [],
+    "evidence": ["4bb54676-8ab6-11eb-8dcd-0242ac130003"],
+    "criminals": ["d9213958-8ab5-11eb-8dcd-0242ac130003"],
+    "description": "Attempted robbery by Tyler Greene at Circle K gas station in Cobb county georgia",
+    "crimeTitle": "Circle K Robbery",
+    "suspects": [],
+    "victims": ["354bc24e-43b5-40f5-b830-2c457aa05bd5"],
+    "users": [
+      "5e21c6a4-8ab6-11eb-8dcd-0242ac130003",
+      "658ab3c4-8ab6-11eb-8dcd-0242ac130003"
+    ],
+    "witnesses": [
+      "f861a906-8ab5-11eb-8dcd-0242ac130003",
+      "9e51f9cf-6b4e-4136-bd7c-ea596f47f3f8"
+    ]
+  },
+  {
+    "crimeId": "c7d64ea8-8ab6-11eb-8dcd-0242ac130003",
+    "personsOfInterest": ["2a1f092a-8ab6-11eb-8dcd-0242ac130003"],
+    "evidence": ["5103b0a4-8ab6-11eb-8dcd-0242ac130003"],
+    "criminals": [],
+    "description": "Karen Howard found murdered in her bedroom.",
+    "crimeTitle": "Murder of Karen Howard",
+    "suspects": ["262340c0-8ab6-11eb-8dcd-0242ac130003"],
+    "victims": ["21a31aa2-8ab6-11eb-8dcd-0242ac130003"],
+    "users": [
+      "61a79da8-8ab6-11eb-8dcd-0242ac130003",
+      "687f3b0e-8ab6-11eb-8dcd-0242ac130003"
+    ],
+    "witnesses": []
+  },
+  {
+    "crimeId": "0c4422a8-3ab2-4e9b-8e05-347aac0c24a5",
+    "personsOfInterest": [],
+    "evidence": ["45c9d96c-3b1e-45ba-8058-77ebeee7015e"],
+    "criminals": [],
+    "description": "Laptop was stolen from student's apartment",
+    "crimeTitle": "Stolen Laptop",
+    "suspects": ["b10ac608-4a4d-4bfa-9e7e-598ab13f47b1"],
+    "victims": ["9eb2a64b-b719-49e5-9f9a-25922c2c5c45"],
+    "users": ["e7be1ebb-1e3e-45de-b27e-8ecc7954f7b6"],
+    "witnesses": [
+      "2b1d2760-32f6-4c41-8643-a100fb878453",
+      "5080a0f2-6b24-455a-8e32-8d2f7e419084"
+    ]
+  },
+  {
+    "crimeId": "977d7bc4-3e67-4b4f-8705-8d8c6c5febbe",
+    "personsOfInterest": [],
+    "evidence": [],
+    "criminals": [],
+    "description": "attempted robbery of GameStop, stole an \u201CX Gaming Console\u201D and 20 video games",
+    "crimeTitle": "Gamestop robbery",
+    "suspects": [],
+    "victims": [],
+    "users": ["d10f6fc7-b52f-4179-847c-a688a23cd724"],
+    "witnesses": []
+  },
+  {
+    "crimeId": "759811f2-da8d-4b21-b929-f7737f0f48d5",
+    "personsOfInterest": [],
+    "evidence": ["4b1477e4-7732-4c88-89f6-1078e89b038f"],
+    "criminals": ["c59eeeed-3f86-45b4-815f-b4082ab9857c"],
+    "description": "Attempted robbery of Gamestop, stole a \"X gaming console\" and 20 video games",
+    "crimeTitle": "Gamestop robbery",
+    "suspects": [],
+    "victims": [],
+    "users": ["d10f6fc7-b52f-4179-847c-a688a23cd724"],
+    "witnesses": ["e56a137b-84e5-4222-8114-e0627a0256f0"]
+  }
+]
