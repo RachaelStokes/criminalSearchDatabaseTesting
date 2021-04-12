@@ -77,13 +77,13 @@ class DataWriterTest {
 		userList.add(new RegisteredUser(id3, "Rachael", "Stokes", "rachstokes3", "mypassword3", false));
 		userList.add(new RegisteredUser(id4, "Rachael", "Stokes", "rachstokes4", "mypassword4", false));
 		userList.add(new RegisteredUser(id5, "Rachael", "Stokes", "rachstokes5", "mypassword5", false));
-		userList.add(new RegisteredUser(id6, "Rachael", "Stokes", "rachstokes1", "mypassword1", false));
-		userList.add(new RegisteredUser(id7, "Rachael", "Stokes", "rachstokes2", "mypassword2", false));
-		userList.add(new RegisteredUser(id8, "Rachael", "Stokes", "rachstokes3", "mypassword3", false));
-		userList.add(new RegisteredUser(id9, "Rachael", "Stokes", "rachstokes4", "mypassword4", false));
-		userList.add(new RegisteredUser(id10, "Rachael", "Stokes", "rachstokes5", "mypassword5", false));
+		userList.add(new RegisteredUser(id6, "Rachael", "Stokes", "rachstokes6", "mypassword1", false));
+		userList.add(new RegisteredUser(id7, "Rachael", "Stokes", "rachstokes7", "mypassword2", false));
+		userList.add(new RegisteredUser(id8, "Rachael", "Stokes", "rachstokes8", "mypassword3", false));
+		userList.add(new RegisteredUser(id9, "Rachael", "Stokes", "rachstokes9", "mypassword4", false));
+		userList.add(new RegisteredUser(id10, "Rachael", "Stokes", "rachstokes10", "mypassword5", false));
 		DataWriter.saveUsers();
-		assertEquals("rachstokes5", DataReader.readUser().get(9).getUsername());
+		assertEquals("rachstokes10", DataReader.readUser().get(9).getUsername());
 	}
 
 	@Test
@@ -121,6 +121,45 @@ class DataWriterTest {
 				"birthDate", "race", "gender", "accountGiven", "height", "age"));
 		DataWriter.savePeople();
 		assertEquals("suspect", DataReader.readPeople().get(2).getType());
+	}
+
+	void testWritingTenPeople() {
+		UUID id1 = UUID.randomUUID();
+		UUID id2 = UUID.randomUUID();
+		UUID id3 = UUID.randomUUID();
+		UUID id4 = UUID.randomUUID();
+		UUID id5 = UUID.randomUUID();
+		UUID id6 = UUID.randomUUID();
+		UUID id7 = UUID.randomUUID();
+		UUID id8 = UUID.randomUUID();
+		UUID id9 = UUID.randomUUID();
+		UUID id10 = UUID.randomUUID();
+		peopleList.add(new Criminal("Rachael", "Stokes", "criminal", id1, "123-456-7890", "address", "email", "birth",
+				"w", "f", "brown", "green", "not ", 0, "none", "none", "cola", "tall", "none", "3", "1"));
+		peopleList.add(new Criminal("Logan", "Moseley", "criminal", id2, "321-654-0987", "address", "email", "birth",
+				"w", "m", "black", "green", "not ", 0, "none", "none", "cola", "tall", "none", "3", "1"));
+		peopleList.add(new Victim("Grace", "Andrews", "victim", id3, "phone", "address", "email", "birthDate", "w", "f",
+				"familyContactInfo", "condition", "bloodType", "accountGiven", "5'10", "19"));
+		peopleList.add(new Victim("Abby", "Williams", "victim", id4, "phone", "address", "email", "birthDate", "w", "f",
+				"familyContactInfo", "condition", "bloodType", "accountGiven", "5'10", "19"));
+		peopleList.add(new Suspect("Chase", "Smith", "suspect", id5, "phone", "address", "email", "birthDate", "race",
+				"gender", "accountGiven", "relationshipToVictim", "criminalRecord", "reasonWhySus", "height", "age"));
+		peopleList.add(new Suspect("Alex", "Richardson", "suspect", id6, "phone", "address", "email", "birthDate",
+				"race", "gender", "accountGiven", "relationshipToVictim", "criminalRecord", "reasonWhySus", "height",
+				"age"));
+		peopleList.add(new PersonOfInterest("firstName", "lastName", "person of interest", id7, "phoneNumber",
+				"address", "email", "birthDate", "race", "gender", "accountGiven", "relationshipToVictim", "height",
+				"age"));
+		peopleList.add(new PersonOfInterest("firstName", "lastName", "person of interest", id8, "phoneNumber",
+				"address", "email", "birthDate", "race", "gender", "accountGiven", "relationshipToVictim", "height",
+				"age"));
+		peopleList.add(new Witness("firstName", "lastName", "witness", id9, "phoneNumber", "address", "email",
+				"birthDate", "race", "gender", "accountGiven", "height", "age"));
+		peopleList.add(new Witness("firstName", "lastName", "witness", id10, "phoneNumber", "address", "email",
+				"birthDate", "race", "gender", "accountGiven", "height", "age"));
+		DataWriter.savePeople();
+		assertEquals("victim", DataReader.readPeople().get(3).getType());
+
 	}
 
 	@Test
